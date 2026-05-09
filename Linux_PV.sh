@@ -7,4 +7,10 @@ read -p -s "Enter the password: " password  # -s used to hide/private the values
 
 echo "" > output.csv  #Remove the existing content in the output file
 
-while read -r host 
+while read -r host
+ do
+
+ sshpass -p $password $user_name@$host 'echo "$(hostname) ; $(uname -r) ; $(uptime)"' >> output.csv 
+ # Outputs will be saved in output.csv file in a local host
+
+ done; < hosts # "hosts is a file that contains the servers list to be the input" 
