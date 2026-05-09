@@ -10,7 +10,7 @@ echo "" > output.csv  #Remove the existing content in the output file
 while read -r host
  do
 
- sshpass -p $password $user_name@$host 'echo "$(hostname) ; $(uname -r) ; $(uptime)"' >> output.csv 
+ sshpass -p $password  ssh $user_name@$host 'echo "$(hostname) ; $(uname -r) ; $(uptime)"' >> output.csv 
  # Outputs will be saved in output.csv file in a local host
 
  done < hosts # "hosts is a file that contains the servers list to be the input" 
