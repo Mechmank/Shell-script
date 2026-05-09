@@ -13,4 +13,4 @@ while read -r host
  sshpass -p $password $user_name@$host 'echo "$(hostname) ; $(uname -r) ; $(uptime)"' >> output.csv 
  # Outputs will be saved in output.csv file in a local host
 
- done; < hosts # "hosts is a file that contains the servers list to be the input" 
+ done < hosts # "hosts is a file that contains the servers list to be the input" 
